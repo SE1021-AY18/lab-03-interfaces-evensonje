@@ -10,7 +10,7 @@ public class Assembly implements Part{
     private final DecimalFormat weightFormat = new DecimalFormat();
 
     public void addPart(Part part) {
-
+        subParts.add(part);
     }
 
     public Assembly(String name) {
@@ -18,11 +18,15 @@ public class Assembly implements Part{
     }
 
     public double getCost() {
-        return Part.getCost();
+        int totalCost = 0;
+        for(int i = 0; i < subParts.size(); i++) {
+            totalCost += USD_PER_SUB_PART + subParts.get(i).getCost();
+        }
+        return totalCost;
     }
 
     public String getName() {
-        return Part.getName();
+        return name;
     }
 
     public double getWeight() {

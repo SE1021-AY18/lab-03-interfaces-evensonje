@@ -10,18 +10,24 @@ public class Bolt implements Part {
     }
 
     public double getCost() {
-        return Part.getCost();
+        return (USD_MULTIPLIER*diameterInches*lengthInches);
     }
 
     public String getName() {
-        return Part.getName();
+        return "Bolt";
     }
 
     public double getWeight() {
-        return Part.getWeight();
+        return (LBS_MULTIPLIER*(diameterInches*diameterInches));
     }
 
     public void printBillOfMaterials() {
-        Part.printBillOfMaterials();
+        System.out.println("==========================\n" +
+                diameterInches+"x"+lengthInches+" "+getName()+"\n"+
+                "==========================\n" +
+                "Diameter: 0.25 inches\n" +
+                "Length: 2.0 inches\n" +
+                "Cost: $0.50\n" +
+                "Weight: 0.006 lbs");
     }
 }

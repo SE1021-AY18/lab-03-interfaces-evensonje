@@ -50,7 +50,7 @@ public class MachineDriver {
         return in.next();
     }
 
-    /**
+    /**1
      * Builds a fan consisting of five blades.
      * See example output near the start of the lab.
      */
