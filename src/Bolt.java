@@ -1,3 +1,10 @@
+/*
+ * SE1021
+ * Winter 2017-2018
+ * Lab 3 - Interfaces
+ * Created: 12/14/2017
+ * Author: Jake Evenson
+ */
 public class Bolt implements Part {
     private double diameterInches;
     public static final double LBS_MULTIPLIER = 0.05;
@@ -9,25 +16,38 @@ public class Bolt implements Part {
         this.lengthInches = lengthInches;
     }
 
+    /**
+     * Calculates the cost of the bolt
+     * @return the total cost
+     */
     public double getCost() {
         return (USD_MULTIPLIER*diameterInches*lengthInches);
     }
 
+    /**
+     * @return the name and size of the bolt
+     */
     public String getName() {
-        return "Bolt";
+        return  diameterInches+"x"+lengthInches+" bolt";
     }
 
+    /**
+     * @return the total weight of the bolt
+     */
     public double getWeight() {
         return (LBS_MULTIPLIER*(diameterInches*diameterInches));
     }
 
+    /**
+     * prints the formatted bill of materials
+     */
     public void printBillOfMaterials() {
         System.out.println("==========================\n" +
-                diameterInches+"x"+lengthInches+" "+getName()+"\n"+
+               getName()+"\n"+
                 "==========================\n" +
-                "Diameter: 0.25 inches\n" +
-                "Length: 2.0 inches\n" +
-                "Cost: $0.50\n" +
-                "Weight: 0.006 lbs");
+                "Diameter: "+diameterInches+" inches\n" +
+                "Length: "+lengthInches+" inches\n" +
+                "Cost: $"+getCost()+"\n" +
+                "Weight: "+getWeight()+" lbs\n");
     }
 }
